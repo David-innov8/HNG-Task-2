@@ -1,6 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { useParams } from "react-router"; 
-
+import { useParams } from "react-router";
 
 const ApiContext = createContext();
 
@@ -11,11 +10,10 @@ export function useApi() {
 export function ApiProvider({ children }) {
   const [apiData, setApiData] = useState(null);
   const [movieDetails, setMovieDetails] = useState([]);
-  const [movieDetailsv, setMovieDetailsv] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const { Id } = useParams(); 
+  const { Id } = useParams();
 
   const API_URL = "https://api.themoviedb.org/3/trending/movie/day";
   const API_KEY = "dc49bd195b7f5780959bf3807018bbe3";
@@ -52,26 +50,9 @@ export function ApiProvider({ children }) {
     }
   };
 
-  const fetchMovieVideos = async (movieId) => {
-    const API_URL = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=dc49bd195b7f5780959bf3807018bbe3`;
-
-    try {
-      const response = await fetch(API_URL);
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
-      setMovieDetailsv(data.results);
-      console.log(data);
-    } catch (err) {
-      console.error("Error fetching movie videos:", err);
-    }
-  };
-
   useEffect(() => {
     fetchApiData();
-      fetchMovieDetails(Id);
-         fetchMovieVideos(Id);
+    fetchMovieDetails(Id);
   }, [Id]);
 
   if (loading) {

@@ -20,6 +20,12 @@ module.exports = {
         "120v": "120vh",
         "130v": "130vh", // Custom class: h-custom sets the height to 200px.
       },
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+      },
     },
   },
   plugins: [],

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Movies() {
   const Movies = useApi();
 
-  const apiData = Movies.slice(0, 12);
+  const apiData = Movies.slice(0, 10);
 
   if (!apiData) {
     return <p>Loading...</p>; // You can add a loading state here
@@ -23,7 +23,7 @@ function Movies() {
   //     ))
   //   }
   return (
-    <div className="flex flex-wrap  gap-y-10 justify-between">
+    <div className="flex flex-wrap gap-x-10 gap-y-10 justify-between lg:grid lg:grid-cols-4">
       {apiData.map((movie) => (
         <Link to={`/movie/${movie.id}`}>
           <Card

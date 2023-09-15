@@ -10,7 +10,7 @@ function Footer() {
     <div className='w-full  flex justify-center'>
 
    
-    <div className='w-[492px] mb-[72px]'>
+    <div className='w-[492px]  mt-[100px] mb-[72px]'>
         <div className='px-10 justify-center flex gap-x-[48px]'>
             <FontAwesomeIcon className='h-[28px]' icon={faFacebookSquare}/>
       <FontAwesomeIcon className='h-[28px]' icon={faInstagramSquare}/>

@@ -15,7 +15,10 @@ module.exports = {
         "70v": "70vh",
         "80v": "80vh",
         "90v": "90vh",
-        "100v": "100vh", // Custom class: h-custom sets the height to 200px.
+        "100v": "100vh",
+        "110v": "110vh",
+        "120v": "120vh",
+        "130v": "130vh", // Custom class: h-custom sets the height to 200px.
       },
     },
   },

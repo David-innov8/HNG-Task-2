@@ -1,44 +1,86 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { apiKey } from './config';
-const ApiDataContext = createContext();
+import { createContext, useContext, useState, useEffect } from "react";
+import { useParams } from "react-router"; 
 
-export function useApiData() {
-  return useContext(ApiDataContext);
+
+const ApiContext = createContext();
+
+export function useApi() {
+  return useContext(ApiContext);
 }
 
-export function ApiDataProvider({ children }) {
-  const [apiData, setApiData] = useState([]);
+export function ApiProvider({ children }) {
+  const [apiData, setApiData] = useState(null);
+  const [movieDetails, setMovieDetails] = useState([]);
+  const [movieDetailsv, setMovieDetailsv] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  const { Id } = useParams(); 
 
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYzQ5YmQxOTViN2Y1NzgwOTU5YmYzODA3MDE4YmJlMyIsInN1YiI6IjY0ZmUzYWI0ZmE0MDQ2MDBjNDEzNzUxOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mf3qTmtauObKhRb6KhGB6oMTLbnJka9U2AbrmR5_Yq0'
+  const API_URL = "https://api.themoviedb.org/3/trending/movie/day";
+  const API_KEY = "dc49bd195b7f5780959bf3807018bbe3";
+
+  const fetchApiData = async () => {
+    try {
+      const response = await fetch(`${API_URL}?api_key=${API_KEY}`);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      console.log(data);
+      setApiData(data.results);
+      setLoading(false);
+    } catch (err) {
+      setError(err);
+      setLoading(false);
+    }
+  };
+
+  const fetchMovieDetails = async (movieId) => {
+    const API_URL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=dc49bd195b7f5780959bf3807018bbe3`;
+
+    try {
+      const response = await fetch(API_URL);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      setMovieDetails(data);
+      console.log(data);
+    } catch (err) {
+      console.error("Error fetching movie details:", err);
+    }
+  };
+
+  const fetchMovieVideos = async (movieId) => {
+    const API_URL = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=dc49bd195b7f5780959bf3807018bbe3`;
+
+    try {
+      const response = await fetch(API_URL);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      setMovieDetailsv(data.results);
+      console.log(data);
+    } catch (err) {
+      console.error("Error fetching movie videos:", err);
     }
   };
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchApiData();
+      fetchMovieDetails(Id);
+         fetchMovieVideos(Id);
+  }, [Id]);
 
- 
-  const fetchData = () => {
-    // Fetch your API data while including the API key in the headers
-    fetch('https://api.example.com/data', {
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setApiData(data))
-      .catch((error) => console.error(error));
-  };
-  // You can include other utility functions here
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
-  return (
-    <ApiDataContext.Provider value={{ apiData, fetchData }}>
-      {children}
-    </ApiDataContext.Provider>
-  );
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+
+  return <ApiContext.Provider value={apiData}>{children}</ApiContext.Provider>;
 }

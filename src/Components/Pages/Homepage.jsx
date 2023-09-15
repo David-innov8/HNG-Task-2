@@ -2,9 +2,11 @@ import React from 'react'
 import Navbar from '../Common/Navbar'
 import Body from '../Hompegae/Body';
 import Card from '../Common/Card';
-import Products from '../Hompegae/Products';
 import LandingPage from './LandingPage';
 import Footer from '../Common/Footer';
+import { useEffect, useState } from 'react';
+import Movies from '../Hompegae/Movies';
+
 function Homepage() {
 
     // const bgImgUrl = "https://i.postifmg.cc/3Nmn5bYb/Poster.png"
@@ -14,16 +16,27 @@ function Homepage() {
     //     backgroundPosition: 'center',
     //   };
 
-
   return (
     <div>
 
       
 <LandingPage/>
-      <Products/>
-      <Card/>
+    
+    <div className='px-[85px]'>
+<div className='flex justify-between mt-[60px] mb-[40px]'>
+       < p className='text-4xl font-bold'>Featured Movie</p>
+       <a className='text-red'>See more {'>'} </a>
+        
+      </div>
+
+    <Movies/> 
+    <Footer/>
+
+   
+      
      
-      <Footer/>
+
+      </div>
     </div>
   )
 }

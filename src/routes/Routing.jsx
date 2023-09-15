@@ -8,7 +8,8 @@ function Routing() {
     <Routes>
       <Route>
         <Route path="/" element={<Homepage/>} />
-        <Route path="/cart" element={<MovieDisplayPage/>} />
+        <Route path="/movie" element={<MovieDisplayPage/>} />
+        <Route path="/movie/:Id" element={<MovieDisplayPage/>}/>
            
 
           

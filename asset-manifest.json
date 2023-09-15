@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/HNG-Task-2/static/css/main.9059f59f.css",
+    "main.js": "/HNG-Task-2/static/js/main.6c091886.js",
+    "static/media/card11.png": "/HNG-Task-2/static/media/card11.01147e662f075b547b9e.png",
+    "static/media/best.png": "/HNG-Task-2/static/media/best.8364abdc5ad2c47ef3d7.png",
+    "static/media/Logo.svg": "/HNG-Task-2/static/media/Logo.ddc4f46c13911d43dde0ee4afc957cde.svg",
+    "static/media/Logo22.png": "/HNG-Task-2/static/media/Logo22.2c5066eb670fc97c94e3.png",
+    "static/media/Movie Projector.svg": "/HNG-Task-2/static/media/Movie Projector.eb26e5a2269a05becb03bab3ee19d26a.svg",
+    "static/media/Calendar.svg": "/HNG-Task-2/static/media/Calendar.cc459cf53c715cec33446c1076c94423.svg",
+    "static/media/Home.svg": "/HNG-Task-2/static/media/Home.9949b062cca08881576646ebf52731ed.svg",
+    "static/media/TV Show.svg": "/HNG-Task-2/static/media/TV Show.f5ef326312a17f2ed39ba465c113d6fe.svg",
+    "static/media/Two Tickets.svg": "/HNG-Task-2/static/media/Two Tickets.1639368a8cdf7adb24f28a191b356990.svg",
+    "static/media/Logout.svg": "/HNG-Task-2/static/media/Logout.99d34ef1a7ce37b3c5c030f3bc3eea13.svg",
+    "static/media/List2.svg": "/HNG-Task-2/static/media/List2.2c7b75987b4b7470f4bb5edcf2ebbabd.svg",
+    "static/media/List.svg": "/HNG-Task-2/static/media/List.1e1597e3589f18720f9f0d33f30a5417.svg",
+    "index.html": "/HNG-Task-2/index.html",
+    "static/media/Play.svg": "/HNG-Task-2/static/media/Play.54d9d33850e26b93a772122a686db4c8.svg",
+    "main.9059f59f.css.map": "/HNG-Task-2/static/css/main.9059f59f.css.map",
+    "main.6c091886.js.map": "/HNG-Task-2/static/js/main.6c091886.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9059f59f.css",
+    "static/js/main.6c091886.js"
+  ]
+}
